@@ -69,8 +69,6 @@ Partial Class Form2
         Me.Label4 = New System.Windows.Forms.Label()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.ProductosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.Database1DataSet = New pitocosmico.Database1DataSet()
-        Me.ProductosTableAdapter = New pitocosmico.Database1DataSetTableAdapters.ProductosTableAdapter()
         Me.MenuVertical.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnsalir, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -79,7 +77,6 @@ Partial Class Form2
         Me.panelContenedor.SuspendLayout()
         Me.Panel8.SuspendLayout()
         CType(Me.ProductosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Database1DataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'MenuVertical
@@ -579,20 +576,6 @@ Partial Class Form2
         Me.TextBox2.Size = New System.Drawing.Size(150, 20)
         Me.TextBox2.TabIndex = 6
         '
-        'ProductosBindingSource
-        '
-        Me.ProductosBindingSource.DataMember = "Productos"
-        Me.ProductosBindingSource.DataSource = Me.Database1DataSet
-        '
-        'Database1DataSet
-        '
-        Me.Database1DataSet.DataSetName = "Database1DataSet"
-        Me.Database1DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'ProductosTableAdapter
-        '
-        Me.ProductosTableAdapter.ClearBeforeFill = True
-        '
         'Form2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -612,7 +595,6 @@ Partial Class Form2
         Me.Panel8.ResumeLayout(False)
         Me.Panel8.PerformLayout()
         CType(Me.ProductosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Database1DataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -655,9 +637,7 @@ Partial Class Form2
     Friend WithEvents Button9 As Button
     Friend WithEvents Panel8 As Panel
     Private WithEvents PictureBox2 As PictureBox
-    Friend WithEvents Database1DataSet As Database1DataSet
     Friend WithEvents ProductosBindingSource As BindingSource
-    Friend WithEvents ProductosTableAdapter As Database1DataSetTableAdapters.ProductosTableAdapter
     Friend WithEvents Button10 As Button
     Friend WithEvents TextBox6 As TextBox
     Friend WithEvents TextBox5 As TextBox
