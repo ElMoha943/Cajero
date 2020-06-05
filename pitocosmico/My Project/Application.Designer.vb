@@ -27,16 +27,12 @@ Namespace My
             Me.IsSingleInstance = false
             Me.EnableVisualStyles = true
             Me.SaveMySettingsOnExit = true
-            Me.ShutDownStyle = Global.Microsoft.VisualBasic.ApplicationServices.ShutdownMode.AfterMainFormCloses
+            Me.ShutDownStyle = Global.Microsoft.VisualBasic.ApplicationServices.ShutdownMode.AfterAllFormsClose
         End Sub
         
         <Global.System.Diagnostics.DebuggerStepThroughAttribute()>  _
         Protected Overrides Sub OnCreateMainForm()
-<<<<<<< HEAD
-            Me.MainForm = Global.CajeroApp.Login
-=======
-            Me.MainForm = Global.pitocosmico.Form1
->>>>>>> parent of 7e0775d... se comenzo a exportar a base de datos externa tipo MySQL. Se realizaron limpiezas de codigo y se añadieron nuevos packages
+            Me.MainForm = Global.pitocosmico.Login
         End Sub
     End Class
 End Namespace

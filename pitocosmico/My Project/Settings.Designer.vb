@@ -27,8 +27,9 @@ Namespace My
     Private Shared addedHandler As Boolean
 
     Private Shared addedHandlerLockObject As New Object
+        Friend ReadOnly Database1ConnectionString As String
 
-    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.ComponentModel.EditorBrowsableAttribute(Global.System.ComponentModel.EditorBrowsableState.Advanced)> _
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.ComponentModel.EditorBrowsableAttribute(Global.System.ComponentModel.EditorBrowsableState.Advanced)> _
     Private Shared Sub AutoSaveSettings(sender As Global.System.Object, e As Global.System.EventArgs)
         If My.Application.SaveMySettingsOnExit Then
             My.Settings.Save()
@@ -53,17 +54,6 @@ Namespace My
                 Return defaultInstance
             End Get
         End Property
-        
-        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf"& _ 
-            ";Integrated Security=True")>  _
-        Public ReadOnly Property Database1ConnectionString() As String
-            Get
-                Return CType(Me("Database1ConnectionString"),String)
-            End Get
-        End Property
     End Class
 End Namespace
 
@@ -75,9 +65,9 @@ Namespace My
     Friend Module MySettingsProperty
         
         <Global.System.ComponentModel.Design.HelpKeywordAttribute("My.Settings")>  _
-        Friend ReadOnly Property Settings() As Global.CajeroApp.My.MySettings
+        Friend ReadOnly Property Settings() As Global.pitocosmico.My.MySettings
             Get
-                Return Global.CajeroApp.My.MySettings.Default
+                Return Global.pitocosmico.My.MySettings.Default
             End Get
         End Property
     End Module
