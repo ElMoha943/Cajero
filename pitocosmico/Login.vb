@@ -2,32 +2,32 @@
 Public Class Login
 
     Function login()
+        'EN ESTAS VARIABLES ALMACENAN LOS DATOS DE LOS USUARIOS
         Dim tempuser As String = ""
         Dim temppass As String = ""
         Dim temprole As String = ""
-        ' COMIENZA CONEXION BASE DE DATOS
-        Dim connectionstring As String = "server=localhost;database=mercado;user id=mercado;password=mercado123;port=3306;" 'CONNECTION STRING
+        'COMIENZA CONEXION BASE DE DATOS
         Dim sqlquery As String = "SELECT * FROM usuarios WHERE username = '" & TextBox1.Text & "';" ' COMANDO A EJECUTAR
-        Dim conn As New MySqlConnection(connectionstring)
         Dim comando As New MySqlCommand(sqlquery, conn)
-        Dim datos As MySqlDataReader
+        Dim datos As MySqlDataReader 'AQUI SE GUARDAN LOS DATOS DE LA CONSULTA
         Try
             conn.Open()
             datos = comando.ExecuteReader()
-            While datos.Read()
-                'MsgBox("USER = " & datos("username").ToString) ' & " PASSOWRD = " & datos("password").ToString & " ROL = " & datos("rol").ToString)
+            While datos.Read() 'AQUI SE PASAN LOS DATOS DE CADA COLUMNA A LAS VARIABLES DONDE SE GUARDARAN
                 tempuser = datos("username").ToString 'nombre
                 temppass = datos("password").ToString 'pass
                 temprole = datos("rol").ToString 'rol
             End While
-            If TextBox2.Text = temppass And TextBox1.Text = tempuser Then
-                If temprole = "admin" Then
-                    Form2.Show()
+            If TextBox2.Text = temppass And TextBox1.Text = tempuser Then 'COMPRUEBA QUE LAS CREDENCIALES DE LA BASE DE DATOS COINCIDAN CON LAS INGRESADAS
+                If temprole = "admin" Then 'COMPRUEBA SI EL USUARIO ES ADMIN
+                    Form2.Show() 'ABRE EL PANEL DE ADMIN
+                    Me.Hide() 'CIERRA EL PANEL DE LOGIN
                 Else
-                    Form1.Show()
+                    Form1.Show() 'ABRE EL PANEL DE USUARIO
+                    Me.Hide()
                 End If
             Else
-                MsgBox("Contraseña incorrecta")
+                MsgBox("Credenciales Incorrectas")
             End If
             conn.Close()
         Catch ex As Exception

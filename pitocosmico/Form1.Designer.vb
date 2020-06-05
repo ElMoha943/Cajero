@@ -22,7 +22,7 @@ Partial Class Form1
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim ListViewItem1 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem("")
+        Dim ListViewItem3 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem("")
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.Eliminar = New System.Windows.Forms.Button()
         Me.Imprimir = New System.Windows.Forms.Button()
@@ -86,6 +86,7 @@ Partial Class Form1
         'RadioButton2
         '
         Me.RadioButton2.AutoSize = True
+        Me.RadioButton2.Checked = True
         Me.RadioButton2.Location = New System.Drawing.Point(269, 150)
         Me.RadioButton2.Name = "RadioButton2"
         Me.RadioButton2.Size = New System.Drawing.Size(64, 17)
@@ -110,6 +111,7 @@ Partial Class Form1
         Me.Label_Product_Name.Size = New System.Drawing.Size(236, 28)
         Me.Label_Product_Name.TabIndex = 8
         Me.Label_Product_Name.Text = "NOMBRE DEL PRODUCTO"
+        Me.Label_Product_Name.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         Me.Label_Product_Name.Visible = False
         '
         'Label1
@@ -126,7 +128,7 @@ Partial Class Form1
         '
         Me.ListView1.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.Producto, Me.Precio})
         Me.ListView1.HideSelection = False
-        Me.ListView1.Items.AddRange(New System.Windows.Forms.ListViewItem() {ListViewItem1})
+        Me.ListView1.Items.AddRange(New System.Windows.Forms.ListViewItem() {ListViewItem3})
         Me.ListView1.Location = New System.Drawing.Point(472, 3)
         Me.ListView1.Name = "ListView1"
         Me.ListView1.Size = New System.Drawing.Size(200, 404)

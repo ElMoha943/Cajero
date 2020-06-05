@@ -1,4 +1,4 @@
-﻿Imports System.Data.SqlClient
+﻿Imports MySql.Data.MySqlClient
 Public Class Form2
     Private Sub button1_Click(sender As Object, e As EventArgs) Handles button1.Click
         SubmenuReportes.Visible = False
@@ -56,33 +56,40 @@ Public Class Form2
     End Sub
 
     Private Sub Register_Click(sender As Object, e As EventArgs) Handles Button7.Click
-        'Dim conexion As String
-        'conexion = "Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\valen\Desktop\pitocosmico\pitocosmico\Database1.mdf;Integrated Security=True"
-        'Dim cn As New SqlConnection
-        'cn.ConnectionString = conexion
-
-        'Dim adaptador As New SqlCommand("insert into Productos values('" & TextBox2.Text & "','" & TextBox3.Text & "')", cn)
-        'cn.Open()
-        'adaptador.ExecuteNonQuery()
-        'MsgBox("Producto agregado correctamente")
+        Dim sqlquery As String = "INSERT INTO productos (nombre, precio) VALUES ('" & TextBox2.Text & "', " & TextBox3.Text & ");" ' COMANDO A EJECUTAR
+        Dim comando As New MySqlCommand(sqlquery, conn)
+        Try
+            conn.Open()
+            comando.ExecuteNonQuery()
+            MsgBox("Producto agregado correctamente.")
+        Catch ex As Exception
+            MsgBox("Ocurrio un error al añadir el producto.")
+        Finally
+            conn.Close()
+        End Try
     End Sub
 
     Private Sub Buscar_Click(sender As Object, e As EventArgs) Handles Button9.Click
-        'Dim conexion As String
-        'conexion = "Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\valen\Desktop\pitocosmico\pitocosmico\Database1.mdf;Integrated Security=True"
-        'Dim cn As New SqlConnection
-        'cn.ConnectionString = conexion
-
-        'Dim adaptador As New SqlDataAdapter("select*from Productos where producto_id=" & TextBox4.Text & "", cn)
-        'Dim ds As New DataSet
-        'adaptador.Fill(ds, "datos")
-
-        'If ds.Tables("datos").Rows.Count > 0 Then
-        ' TextBox5.Text = ds.Tables("datos").Rows(0).Item(1).ToString 'nombre
-        'TextBox6.Text = ds.Tables("datos").Rows(0).Item(2).ToString 'precio
-        'Else
-        'MsgBox("No se encontro el producto")
-        ' End If
+        Dim sqlquery As String = "SELECT * FROM productos WHERE id = " & TextBox4.Text & ");" ' COMANDO A EJECUTAR
+        Dim comando As New MySqlCommand(sqlquery, conn)
+        Dim datos As MySqlDataReader 'AQUI SE GUARDAN LOS DATOS DE LA CONSULTA
+        Dim Exists = 0
+        Try
+            conn.Open()
+            datos = comando.ExecuteReader()
+            While datos.Read() 'AQUI SE PASAN LOS DATOS DE CADA COLUMNA A LAS VARIABLES DONDE SE GUARDARAN
+                TextBox5.Text = datos("nombre").ToString 'nombre
+                TextBox6.Text = datos("precio").ToString 'precio
+                Exists = Exists + 1
+            End While
+            'Catch ex As Exception
+            'MsgBox("Ocurrio un error al añadir el producto.")
+        Finally
+            conn.Close()
+        End Try
+        If Exists < 1 Then 'VERIFICA QUE EL PRODUCTO EXISTA
+            MsgBox("No se encontro el producto")
+        End If
     End Sub
 
     Private Sub Borrar_Click(sender As Object, e As EventArgs) Handles Button8.Click
