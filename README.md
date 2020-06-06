@@ -14,5 +14,5 @@ Programa de Cajero con GUI (AKA Pitocosmico)
 - Sistema de stock.
 - Sistema de creacion de usuario.
 - Remodelacion grafica.
-- + Roles.
+- Mas Roles.
 - Estadisticas.
