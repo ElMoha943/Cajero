@@ -25,3 +25,13 @@ CREATE TABLE `usuarios` (
 
 	PRIMARY KEY (`username`)
 );
+
+create table tickets_productos (
+id int not null auto_increment,
+ticket_id int not null,
+producto varchar(255) not null,
+precio float not null,
+primary key(id)
+);
+
+alter table tickets_productos add foreign key(ticket_id) references tickets(id);
