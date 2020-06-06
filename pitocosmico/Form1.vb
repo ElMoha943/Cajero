@@ -86,7 +86,7 @@ Public Class Form1
 
     Private Sub Imprimir_Click(sender As Object, e As EventArgs) Handles Imprimir.Click
         Dim fecha As Date = Today
-        Dim sqlquery As String = "INSERT INTO tickets ('total', 'tipo', 'fecha') VALUES (" & total & ", '" & tipo & "', " & fecha & ")" ' COMANDO A EJECUTAR
+        Dim sqlquery As String = "INSERT INTO tickets (total, tipo, fecha) VALUES (" & total & ", '" & tipo & "', " & fecha & ");" ' COMANDO A EJECUTAR
         Dim comando As New MySqlCommand(sqlquery, conn)
         Try
             conn.Open()
@@ -95,8 +95,8 @@ Public Class Form1
             total = 0
             Label1.Text = ("TOTAL: " & total)
             conn.Close()
-        Catch ex As Exception
-            MsgBox("OCURRIO UN ERROR")
+            'Catch ex As Exception
+            'MsgBox("OCURRIO UN ERROR")
         Finally
             conn.Dispose()
         End Try
