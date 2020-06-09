@@ -433,7 +433,7 @@ Partial Class Form2
         Me.Panel8.Controls.Add(Me.TextBox3)
         Me.Panel8.Controls.Add(Me.Label4)
         Me.Panel8.Controls.Add(Me.TextBox2)
-        Me.Panel8.Location = New System.Drawing.Point(6, 12)
+        Me.Panel8.Location = New System.Drawing.Point(6, 16)
         Me.Panel8.Name = "Panel8"
         Me.Panel8.Size = New System.Drawing.Size(577, 226)
         Me.Panel8.TabIndex = 13
@@ -584,6 +584,7 @@ Partial Class Form2
         Me.Controls.Add(Me.panelContenedor)
         Me.Controls.Add(Me.MonthCalendar1)
         Me.Controls.Add(Me.MenuVertical)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "Form2"
         Me.Text = "Form2"
         Me.MenuVertical.ResumeLayout(False)
