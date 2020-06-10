@@ -15,4 +15,6 @@ Programa de Cajero con GUI (AKA Pitocosmico)
 - Remodelacion grafica.
 - Mas Roles.
 - Estadisticas.
-- Migrar a C#
+
+#
+Gracias a Auzette por su ayuda.
